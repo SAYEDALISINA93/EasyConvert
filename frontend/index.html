@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Docbench — local document converter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="crt-frame">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">▣</span>
+        <span class="brand-name">DOCBENCH</span>
+      </div>
+      <span class="brand-sub">local file converter · runs on this machine, nothing leaves it</span>
+    </header>
+
+    <main class="bench">
+      <section class="panel intake" id="drop-zone">
+        <div class="panel-label">01 · SOURCE FILE</div>
+        <div class="drop-inner" id="drop-inner">
+          <div class="drop-icon">⇩</div>
+          <p class="drop-text">Drop a file here, or <label for="file-input" class="file-pick">choose one</label></p>
+          <p class="drop-hint">.md · .pdf · .docx · .html · .epub</p>
+          <input type="file" id="file-input" accept=".md,.markdown,.pdf,.docx,.doc,.html,.htm,.epub" hidden>
+        </div>
+        <div class="file-chip" id="file-chip" hidden>
+          <span class="chip-ext" id="chip-ext">MD</span>
+          <span class="chip-name" id="chip-name"></span>
+          <button class="chip-clear" id="chip-clear" title="Remove file">✕</button>
+        </div>
+      </section>
+
+      <section class="panel routing">
+        <div class="panel-label">02 · OUTPUT FORMAT</div>
+        <div class="format-grid" id="format-grid"></div>
+      </section>
+
+      <section class="panel action">
+        <button class="convert-btn" id="convert-btn" disabled>
+          <span id="convert-btn-label">SELECT A FILE TO BEGIN</span>
+        </button>
+        <div class="status-line" id="status-line"></div>
+      </section>
+    </main>
+
+    <footer class="ledger" id="ledger">
+      <div class="ledger-title">RECENT CONVERSIONS</div>
+      <div class="ledger-rows" id="ledger-rows">
+        <div class="ledger-empty">Nothing converted yet this session.</div>
+      </div>
+    </footer>
+  </div>
+
+<script src="app.js"></script>
+</body>
+</html>
